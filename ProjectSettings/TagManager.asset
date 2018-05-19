@@ -42,8 +42,17 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Ground
-    uniqueID: 4115234561
+    uniqueID: 1005557991
+    locked: 0
+  - name: Lower
+    uniqueID: 479773621
     locked: 0
   - name: Player
     uniqueID: 2645404995
+    locked: 0
+  - name: Upper
+    uniqueID: 674703681
+    locked: 0
+  - name: Collision
+    uniqueID: 1306153739
     locked: 0

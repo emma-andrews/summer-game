@@ -2,32 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+
 public class PlayerController : MonoBehaviour {
 
-    public float moveSpeed;
+    private Rigidbody2D rb2d;
     private Animator anim;
     private bool playerMoving;
     private Vector2 lastMove;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    private float speedMultiplier;
+
+    void Awake()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void FixedUpdate()
+    {
+        rb2d.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * speedMultiplier, 0.8f),
+            Mathf.Lerp(0, Input.GetAxis("Vertical") * speedMultiplier, 0.8f));
+    }
+
+    // Update is called once per frame
+    void Update () {
         playerMoving = false;
 
 		if (Input.GetAxis("Horizontal") > 0.5f || Input.GetAxis("Horizontal") < -0.5f)
         {
-            transform.Translate(new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f));
             playerMoving = true;
             lastMove = new Vector2(Input.GetAxis("Horizontal"), 0f);
         }
 
         if (Input.GetAxis("Vertical") > 0.5f || Input.GetAxis("Vertical") < -0.5f)
         {
-            transform.Translate(new Vector3(0f, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime, 0f));
             playerMoving = true;
             lastMove = new Vector2(0f, Input.GetAxis("Vertical"));
         }

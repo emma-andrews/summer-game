@@ -2,3 +2,4 @@ Castle2 - Zabin, Hyptosis, and Danial Cook https://opengameart.org/content/castl
 Mage City Arcanos - Hyptosis https://opengameart.org/content/mage-city-arcanos
 Mage - saint11 https://opengameart.org/content/16x16-mage
 Path Objects - Zabin, Daneeklu, Jetrel, Hyptosis, Redshrike, Bertram https://opengameart.org/content/rpg-tiles-cobble-stone-paths-town-objects
+RPG Sprites - Charles Gabriel https://opengameart.org/content/twelve-16x18-rpg-sprites-plus-base
