@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
-	public void DoInteraction(){
-		//Picked up and put in inventory
-		gameObject.SetActive(false);
-	}
+    public void DoInteraction ()
+    {
+        Destroy(gameObject);
+    }
 }
