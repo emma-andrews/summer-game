@@ -5,18 +5,15 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour {
 
     public GameObject currentInterObj;
-    public Item item;
 
     void Update()
     {
         if (Input.GetButtonDown("Interact") && currentInterObj)
         {
             //Do something with the object
-            bool wasPickedUp = Inventory.instance.Add(item);
-            if (wasPickedUp)
-            {
+            
                 currentInterObj.SendMessage("DoInteraction");
-            }
+            
         }
     }
 
