@@ -6,7 +6,7 @@ public class InventoryUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        inventory = Inventory.instance;
+       // inventory = Inventory.instance;
 	}
 	
 	// Update is called once per frame
