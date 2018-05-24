@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour {
 
-    public GameObject currentInterObj;
-    public Item item;
+    public GameObject currentInterObj = null;
+	public InteractionObject currentInterObjScript = null;
+    public Inventory inventory;
 
     void Update()
     {
         if (Input.GetButtonDown("Interact") && currentInterObj)
         {
             //Do something with the object
-            bool wasPickedUp = Inventory.instance.Add(item);
-            if (wasPickedUp)
+
+			if (currentInterObjScript.inventory)
             {
                 currentInterObj.SendMessage("DoInteraction");
+				inventory.AddItem(currentInterObj);
+                
+				//if theyve been added but havent been removed, removes them
+				if(currentInterObj&&currentInterObjScript){
+					currentInterObj = null;
+					currentInterObjScript = null;
+				}
             }
         }
     }
@@ -27,6 +35,7 @@ public class PlayerInteract : MonoBehaviour {
         {
             Debug.Log(collision.name);
             currentInterObj = collision.gameObject;
+			currentInterObjScript = currentInterObj.GetComponent<InteractionObject>();
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -35,7 +44,7 @@ public class PlayerInteract : MonoBehaviour {
         {
             if (other.gameObject == currentInterObj)
             {
-
+				currentInterObjScript = null;
                 currentInterObj = null;
             }
         }

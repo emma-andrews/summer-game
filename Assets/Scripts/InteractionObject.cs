@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour {
+public class InteractionObject : MonoBehaviour {
+	public bool inventory; //if true this object can be stored in inventory
 
     public void DoInteraction ()
     {
-        Destroy(gameObject);
+
     }
 }

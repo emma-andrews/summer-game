@@ -4,34 +4,27 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-    public List<Item> items = new List<Item>();
-    public static Inventory instance;
-    public int space = 15;
-
-    void Awake()
+	public GameObject[] inventory = new GameObject[10];
+  
+   	public void AddItem(GameObject item)
     {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one instance of Inventory found!");
-            return;
-        }
+		bool itemAdded = false;
 
-        instance = this;
+		for (int i = 0; i < inventory.Length;i++)
+		{
+			if(inventory[i] == null){
+				inventory[i] = item;
+				Debug.Log(item.name + "was added");
+				itemAdded = true;
+				break;
+			}
+		}
+
+		if(!itemAdded){
+			Debug.Log("Inventory full, item not added");
+		}
+       
     }
 
-    public bool Add (Item item)
-    {
-        if (items.Count >= space)
-        {
-            Debug.Log("Not enough room");
-            return false;
-        }
-        items.Add(item);
-        return true;
-    }
-
-    public void Remove(Item item)
-    {
-        items.Remove(item);
-    }
+    
 }
