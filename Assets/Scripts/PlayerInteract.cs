@@ -17,6 +17,7 @@ public class PlayerInteract : MonoBehaviour {
             {
                 currentInterObj.SendMessage("DoInteraction");
 				inventory.AddItem(currentInterObj);
+                currentInterObj.gameObject.SetActive(false);
                 
 				//if theyve been added but havent been removed, removes them
 				if(currentInterObj&&currentInterObjScript){
