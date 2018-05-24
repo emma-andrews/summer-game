@@ -3,39 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
-
-<<<<<<< .merge_file_a01896
-    public List<Item> items = new List<Item>();
-    public static Inventory instance;
-    public int space = 15;
-
-    void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one instance of Inventory found!");
-            return;
-        }
-
-        instance = this;
-    }
-
-    public bool Add (Item item)
-    {
-        if (items.Count >= space)
-        {
-            Debug.Log("Not enough room");
-            return false;
-        }
-        items.Add(item);
-        return true;
-    }
-
-    public void Remove(Item item)
-    {
-        items.Remove(item);
-    }
-=======
 	public GameObject[] inventory = new GameObject[10];
   
    	public void AddItem(GameObject item)
@@ -57,7 +24,4 @@ public class Inventory : MonoBehaviour {
 		}
        
     }
-
-    
->>>>>>> .merge_file_a08240
 }
