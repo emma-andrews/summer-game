@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Animator anim;
     private bool playerMoving;
-    private Vector2 lastMove;
+    public Vector2 lastMove;
+    private static bool playerExists;
 
     [SerializeField]
     private float speedMultiplier;
@@ -21,6 +22,16 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
+
+        if (!playerExists)
+        {
+            playerExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 	}
 
     void FixedUpdate()
